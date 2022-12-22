@@ -75,4 +75,27 @@ public class Controller {
         session.getTransaction().commit();
         return nuevo;
     }
+
+    public Calle createCalle(String nombre, Municipio municipio,Provincia provincia) throws SQLException{
+        Calle calle= new Calle(nombre,municipio,provincia);
+        session.beginTransaction();
+        session.saveOrUpdate(calle);
+        session.getTransaction().commit();
+        return calle;
+    }
+    public Municipio createMunicipio(String nombre, Provincia provincia) throws SQLException{
+        Municipio municipio= new Municipio(nombre,provincia);
+        session.beginTransaction();
+        session.saveOrUpdate(municipio);
+        session.getTransaction().commit();
+        return municipio;
+    }
+    
+        public Provincia createProvincia(String nombre) throws SQLException{
+        Provincia provincia = new Provincia(nombre);
+        session.beginTransaction();
+        session.saveOrUpdate(provincia);
+        session.getTransaction().commit();
+        return provincia;
+    }
 }
